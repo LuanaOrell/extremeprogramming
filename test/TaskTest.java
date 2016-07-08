@@ -28,4 +28,19 @@ public class TaskTest {
         assertEquals(expected, actual);
         
     }
+    
+    @Test(expected = DuplicateTasks.class)
+    public void testRepeatedTasksNamesInAUserStory() {
+        
+        Task task = new Task(3, "Actualizar Estado", "Actualizar estado de una tarea");
+        Task repeated = new Task(4, "Actualizar Estado", "Actualizar estado de una tarea");
+        
+        UserStory userStory = new UserStory(1, "HistoriaNueva", "Crear una historia nueva", 12, 13);
+        userStory.addTask(task);
+        userStory.addTask(repeated);        
+        
+        UserStoryManager manager = new UserStoryManager();
+        manager.createUserStory(userStory);
+    }
+    
 }
