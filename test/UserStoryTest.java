@@ -20,4 +20,14 @@ public class UserStoryTest {
         
         assertEquals(expected, actual);
     }
+    
+    @Test(expected = DuplicateUserStories.class)
+    public void testDuplicateUserStoriesNames() {
+        UserStory userStory = new UserStory(1, "HistoriaNueva", "Crear una historia nueva", 12, 13);
+        UserStory userStoryDuplicate = new UserStory(1, "HistoriaNueva", "Crear una historia nueva", 12, 13);
+        
+        UserStoryManager manager = new UserStoryManager();
+        manager.createUserStory(userStory);
+        manager.createUserStory(userStoryDuplicate);       
+    }
 }
