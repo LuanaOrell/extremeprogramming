@@ -1,3 +1,5 @@
+package databasemanager;
+
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,12 +18,12 @@ import java.util.logging.Logger;
  */
 public class QueryTask {
 
-    private final ConnectionBD connection;
+    private final ConnectionDB connection;
     private Statement statement;
     private ResultSet resultSet;
 
     public QueryTask() throws ClassNotFoundException, SQLException {
-        connection = new ConnectionBD();
+        connection = ConnectionDB.getInstance();
     }
 
     public String getStatusTask(int id) {
