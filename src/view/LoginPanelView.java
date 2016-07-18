@@ -40,9 +40,9 @@ public class LoginPanelView extends javax.swing.JPanel {
         setLayout(null);
 
         labelScrum.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        labelScrum.setText("SCRUM");
+        labelScrum.setText("EXTREME PROGRAMMING");
         add(labelScrum);
-        labelScrum.setBounds(140, 40, 58, 22);
+        labelScrum.setBounds(100, 30, 210, 22);
 
         buttonLogin.setText("Log in");
         buttonLogin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -56,9 +56,9 @@ public class LoginPanelView extends javax.swing.JPanel {
             }
         });
         add(buttonLogin);
-        buttonLogin.setBounds(227, 200, 70, 23);
+        buttonLogin.setBounds(160, 260, 70, 23);
         add(loginText);
-        loginText.setBounds(56, 80, 241, 30);
+        loginText.setBounds(100, 100, 241, 30);
 
         passwordText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,15 +66,15 @@ public class LoginPanelView extends javax.swing.JPanel {
             }
         });
         add(passwordText);
-        passwordText.setBounds(56, 141, 241, 30);
+        passwordText.setBounds(100, 180, 241, 30);
 
-        userLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
+        userLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/girl_login.png"))); // NOI18N
         add(userLabel);
-        userLabel.setBounds(20, 80, 32, 32);
+        userLabel.setBounds(20, 80, 80, 70);
 
-        passwordLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/password.png"))); // NOI18N
+        passwordLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/padlock.png"))); // NOI18N
         add(passwordLabel);
-        passwordLabel.setBounds(20, 141, 32, 32);
+        passwordLabel.setBounds(20, 160, 70, 70);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonLoginMouseClicked

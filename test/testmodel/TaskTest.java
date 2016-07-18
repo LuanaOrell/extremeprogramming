@@ -20,13 +20,13 @@ public class TaskTest {
     @Test
     public void testGetStatusTask() throws ClassNotFoundException, SQLException {
         
-        Task task = new Task(1,"Crear Tabla Tarea","Crear la tabla para la base de base");
+        Task task = new Task("Crear Tabla Tarea","Crear la tabla para la base de base");
         String expected = "Done";
         QueryTask query = new QueryTask();
         String actual = query.getStatusTask(task.getId());
         assertEquals(expected, actual);
         
-        task = new Task(2,"Relacionar Tarea","Crear la relacion entre una tarea e Historia");
+        task = new Task("Relacionar Tarea","Crear la relacion entre una tarea e Historia");
         expected = "To Do";
         actual = query.getStatusTask(task.getId());
         assertEquals(expected, actual);

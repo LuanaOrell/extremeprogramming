@@ -22,7 +22,7 @@ public class Main {
         SwingUtilities.invokeLater(() -> {
             LoginPanelView mainPanelMenu = new LoginPanelView();
             frame.getContentPane().add(mainPanelMenu);
-            frame.setSize(340, 300);
+            frame.setSize(380,340);
             frame.setResizable(false);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
