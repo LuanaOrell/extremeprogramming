@@ -5,8 +5,10 @@
  */
 package view;
 
+import actions.FillBacklogTableAction;
 import javax.swing.BorderFactory;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 /**
  *
@@ -40,9 +42,9 @@ public class MainPanelView extends javax.swing.JPanel {
         logStoryPanel = new javax.swing.JPanel();
         logLabel = new javax.swing.JLabel();
         viewLogButton = new javax.swing.JButton();
-        backlogButton = new javax.swing.JPanel();
+        backlogPanel = new javax.swing.JPanel();
         backlogLabel = new javax.swing.JLabel();
-        SprintButton = new javax.swing.JButton();
+        backlogButton = new javax.swing.JButton();
         taskBoardPanel = new javax.swing.JPanel();
         taskBoardLabel = new javax.swing.JLabel();
         viewTaskBoardButton = new javax.swing.JButton();
@@ -106,18 +108,23 @@ public class MainPanelView extends javax.swing.JPanel {
 
         add(logStoryPanel);
 
-        backlogButton.setBackground(new java.awt.Color(255, 255, 255));
-        backlogButton.setLayout(null);
+        backlogPanel.setBackground(new java.awt.Color(255, 255, 255));
+        backlogPanel.setLayout(null);
 
         backlogLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/folders.png"))); // NOI18N
-        backlogButton.add(backlogLabel);
+        backlogPanel.add(backlogLabel);
         backlogLabel.setBounds(50, 25, 130, 130);
 
-        SprintButton.setText("Backlog");
-        backlogButton.add(SprintButton);
-        SprintButton.setBounds(70, 180, 80, 23);
+        backlogButton.setText("Backlog");
+        backlogButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backlogButtonActionPerformed(evt);
+            }
+        });
+        backlogPanel.add(backlogButton);
+        backlogButton.setBounds(70, 180, 80, 23);
 
-        add(backlogButton);
+        add(backlogPanel);
 
         taskBoardPanel.setBackground(new java.awt.Color(255, 255, 255));
         taskBoardPanel.setLayout(null);
@@ -182,11 +189,22 @@ public class MainPanelView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_viewLogButtonActionPerformed
 
+    private void backlogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backlogButtonActionPerformed
+        JDialog dialog = new JDialog();
+        dialog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        BacklogPanelView backlog = new BacklogPanelView();
+        FillBacklogTableAction fillTable = new FillBacklogTableAction(backlog);// this will fill the table
+        dialog.getContentPane().add(backlog);
+        dialog.setSize(500, 500);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_backlogButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SprintButton;
-    private javax.swing.JPanel backlogButton;
+    private javax.swing.JButton backlogButton;
     private javax.swing.JLabel backlogLabel;
+    private javax.swing.JPanel backlogPanel;
     private javax.swing.JLabel calendarLabel;
     private javax.swing.JPanel calendarPanel;
     private javax.swing.JPanel createStoriesPanel;

@@ -7,7 +7,7 @@ package main;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import view.MainPanelView;
+import view.LoginPanelView;
 
 /**
  *
@@ -20,9 +20,9 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         SwingUtilities.invokeLater(() -> {
-            MainPanelView mainPanelMenu = new MainPanelView();
+            LoginPanelView mainPanelMenu = new LoginPanelView();
             frame.getContentPane().add(mainPanelMenu);
-            frame.setSize(750, 550);
+            frame.setSize(340, 300);
             frame.setResizable(false);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
