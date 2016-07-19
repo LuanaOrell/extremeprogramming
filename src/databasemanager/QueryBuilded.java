@@ -21,7 +21,7 @@ public class QueryBuilded {
 
     public static final QueryBuilded INSTANCE = new QueryBuilded();
 
-    private QueryBuilded() {
+    public QueryBuilded() {
     }
 
     public static QueryBuilded getInstance() {
