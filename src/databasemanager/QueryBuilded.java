@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class QueryBuilded {
 
-    public static final QueryBuilded INSTANCE = new QueryBuilded();
+    private static final QueryBuilded INSTANCE = new QueryBuilded();
 
     public QueryBuilded() {
     }
@@ -85,12 +85,17 @@ public class QueryBuilded {
     }
 
     public int getIdUsuario(String login, String password) {
-        int result = -1;
+        int result = 0;
         try {
             String query = String.format("SELECT get_id_user('%s', '%s');", login, password);
             ResultSet resultSet = QueryManager.getInstance().executeQuery(query);
             while (resultSet.next()) {
-                result = resultSet.getInt(1);
+                int current = resultSet.getInt(1);
+                if(current == 0){
+                    result = -1;
+                } else {
+                    result = current;
+                }
             }
 
         } catch (SQLException ex) {
@@ -101,12 +106,17 @@ public class QueryBuilded {
     }
 
     public int getIdRol(String rol) {
-        int result = -1;
+        int result = 0;
         try {
             String query = String.format("SELECT get_id_rol('%s');", rol);
             ResultSet resultSet = QueryManager.getInstance().executeQuery(query);
             while (resultSet.next()) {
-                result = resultSet.getInt(1);
+                int current = resultSet.getInt(1);
+                if(current == 0){
+                    result = -1;
+                } else {
+                    result = current;
+                }
             }
 
         } catch (SQLException ex) {
@@ -117,12 +127,17 @@ public class QueryBuilded {
     }
 
     public int getIdTask(String title) {
-        int result = -1;
+        int result = 0;
         try {
             String query = String.format("SELECT get_id_task('%s')", title);
             ResultSet resultSet = QueryManager.getInstance().executeQuery(query);
             while (resultSet.next()) {
-                result = resultSet.getInt(1);
+               int current = resultSet.getInt(1);
+                if(current == 0){
+                    result = -1;
+                } else {
+                    result = current;
+                }
             }
 
         } catch (SQLException ex) {
@@ -154,12 +169,17 @@ public class QueryBuilded {
     }
 
     public int getIdStory(String titleStory) {
-        int result = -1;
+        int result = 0;
         try {
             String query = String.format("SELECT get_id_story('%s')", titleStory);
             ResultSet resultSet = QueryManager.getInstance().executeQuery(query);
             while (resultSet.next()) {
-                result = resultSet.getInt(1);
+                int current = resultSet.getInt(1);
+                if(current == 0){
+                    result = -1;
+                } else {
+                    result = current;
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(QueryBuilded.class.getName()).log(Level.SEVERE, null, ex);

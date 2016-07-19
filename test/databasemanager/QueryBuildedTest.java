@@ -9,7 +9,6 @@ package databasemanager;
  *
  * @author Carla
  */
-
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -21,73 +20,81 @@ import static org.junit.Assert.assertTrue;
  * @author Carla
  */
 public class QueryBuildedTest {
+
     private QueryBuilded queryBuilded;
+
     @Before
-    void setup(){
-      queryBuilded=new QueryBuilded();
+    public void setup() {
+        ConnectionDB.getInstance().start();
+        queryBuilded = QueryBuilded.getInstance();
     }
+
     @Test
-    void userShouldNotBeAbleToSignIn(){
-        assertFalse(queryBuilded.validateUser(" "," "));
-        assertFalse(queryBuilded.validateUser(" "," "));
-        assertFalse(queryBuilded.validateUser(" "," "));
+    public void userShouldNotBeAbleToSignIn() {
+        assertFalse(queryBuilded.validateUser("andres24", "andy24"));
+        assertFalse(queryBuilded.validateUser("lucas", "luke56"));
+        assertFalse(queryBuilded.validateUser("camila", "cami29"));
     }
-    @Test 
-    void userShouldBeAbleToSignIn(){
-        assertTrue(queryBuilded.validateUser("", ""));
-        assertTrue(queryBuilded.validateUser("", ""));
-        assertTrue(queryBuilded.validateUser("", ""));
-    }
-    @Test 
-    void itShouldExistAnIdForARegistredUser(){
-     
-     assertEquals(1,queryBuilded.getIdUsuario("",""));
-     assertEquals(2,queryBuilded.getIdUsuario(" "," " ));
-     assertEquals(3,queryBuilded.getIdUsuario(" "," " ));
-     assertEquals(-1,queryBuilded.getIdUsuario(" "," " ));
-     assertEquals(-1,queryBuilded.getIdUsuario(" "," " ));
-    }
-    
+
     @Test
-    void itShouldExistAnIdForAStoredRol(){
-      assertEquals(1,queryBuilded.getIdRol(""));
-      assertEquals(2,queryBuilded.getIdRol(""));
-      assertEquals(3,queryBuilded.getIdRol(""));
-      assertEquals(-1,queryBuilded.getIdRol(""));
-      assertEquals(-1,queryBuilded.getIdRol(""));
+    public void userShouldBeAbleToSignIn() {
+        assertTrue(queryBuilded.validateUser("luana", "floricienta"));
+        assertTrue(queryBuilded.validateUser("jessica", "flores"));
+        assertTrue(queryBuilded.validateUser("melody", "maldonado"));
     }
+
     @Test
-    void itShouldExistAnIdForAStoredTask(){
-        assertEquals(1, queryBuilded.getIdTask(""));
-        assertEquals(2, queryBuilded.getIdTask(""));
-        assertEquals(3, queryBuilded.getIdTask(""));
-        assertEquals(-1, queryBuilded.getIdTask(""));
-        assertEquals(-1, queryBuilded.getIdTask(""));
-    
-     }
-    @Test
-    void itShouldExistAnIdForAStoredStory(){
-        assertEquals(1, queryBuilded.getIdStory(""));
-        assertEquals(2, queryBuilded.getIdStory(""));
-        assertEquals(4, queryBuilded.getIdStory(""));
-        assertEquals(-1, queryBuilded.getIdStory(""));
-        assertEquals(-1, queryBuilded.getIdStory("")); 
+    public void itShouldExistAnIdForARegistredUser() {
+        assertEquals(1, queryBuilded.getIdUsuario("jessica", "flores"));
+        assertEquals(2, queryBuilded.getIdUsuario("melody", "maldonado"));
+        assertEquals(3, queryBuilded.getIdUsuario("rocio", "ramirez"));
+        assertEquals(-1, queryBuilded.getIdUsuario("rocio", "chucamani"));
+        assertEquals(-1, queryBuilded.getIdUsuario("luana", "orellana"));
     }
+
     @Test
-    void shouldBeAbloToKnowStoredTaskStatus(){
-       assertEquals("", queryBuilded.getStatusTask(""));
-       assertEquals(null, queryBuilded.getStatusTask(""));
-       assertEquals("", queryBuilded.getStatusTask(""));
-       assertEquals(null, queryBuilded.getStatusTask(""));
-       assertEquals("", queryBuilded.getStatusTask(""));
+    public void itShouldExistAnIdForAStoredRol() {
+        assertEquals(1, queryBuilded.getIdRol("Administrador"));
+        assertEquals(2, queryBuilded.getIdRol("Product owner"));
+        assertEquals(3, queryBuilded.getIdRol("Developer"));
+        assertEquals(-1, queryBuilded.getIdRol("Scrum Master"));
+        assertEquals(-1, queryBuilded.getIdRol("Cajero"));
     }
-    void shouldBeAbleToKnowStoredStoryStatus(){
+
+//    @Test
+//    public void itShouldExistAnIdForAStoredTask() {
+//        assertEquals(1, queryBuilded.getIdTask("Crear Tabla Tarea"));
+//        assertEquals(2, queryBuilded.getIdTask("Relacionar Tarea"));
+//        assertEquals(3, queryBuilded.getIdTask("Crear Tabla Proyecto"));
+//        assertEquals(-1, queryBuilded.getIdTask("Crear Iteracion"));
+//        assertEquals(-1, queryBuilded.getIdTask("Crear Historia"));
+//
+//    }
+
+    @Test
+    public void itShouldExistAnIdForAStoredStory() {
+        assertEquals(1, queryBuilded.getIdStory("Registrar Tarea"));
+        assertEquals(2, queryBuilded.getIdStory("Crear Proyecto"));
+        assertEquals(4, queryBuilded.getIdStory("Crear Usuario"));
+        assertEquals(-1, queryBuilded.getIdStory("Crear Tarea"));
+        assertEquals(-1, queryBuilded.getIdStory("Crear Iteracion"));
+    }
+
+    @Test
+    public void shouldBeAbloToKnowStoredTaskStatus() {
+        assertEquals("", queryBuilded.getStatusTask(""));
+        assertEquals(null, queryBuilded.getStatusTask(""));
+        assertEquals("", queryBuilded.getStatusTask(""));
+        assertEquals(null, queryBuilded.getStatusTask(""));
+        assertEquals("", queryBuilded.getStatusTask(""));
+    }
+
+    public void shouldBeAbleToKnowStoredStoryStatus() {
         assertEquals("", queryBuilded.getStatusStory(1));
         assertEquals("", queryBuilded.getStatusStory(1));
         assertEquals(null, queryBuilded.getStatusStory(53));
         assertEquals(null, queryBuilded.getStatusStory(78));
         assertEquals(null, queryBuilded.getStatusStory(-1));
     }
-    
-}
 
+}
