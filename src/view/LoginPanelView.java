@@ -5,8 +5,11 @@
  */
 package view;
 
+import databasemanager.ConnectionDB;
+import databasemanager.QueryBuilded;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,13 +85,22 @@ public class LoginPanelView extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonLoginMouseClicked
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        JDialog dialog = new JDialog();
-        MainPanelView mainPanel = new MainPanelView();
-        dialog.getContentPane().add(mainPanel);
-        dialog.setSize(750, 550);
-        dialog.setResizable(false);
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
+        ConnectionDB.getInstance().start();
+        String login = loginText.getText();
+        String password = String.valueOf(passwordText.getPassword());
+        boolean isUser = QueryBuilded.getInstance().validateUser(login, password);
+        if (isUser) {
+            JDialog dialog = new JDialog();
+            MainPanelView mainPanel = new MainPanelView();
+            dialog.getContentPane().add(mainPanel);
+            dialog.setSize(750, 550);
+            dialog.setResizable(false);
+            dialog.setLocationRelativeTo(null);
+            dialog.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "User not registered");
+        }
+        
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void passwordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextActionPerformed

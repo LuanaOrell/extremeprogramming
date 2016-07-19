@@ -5,6 +5,7 @@
  */
 package actions;
 
+import databasemanager.QueryBuilded;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import view.UserStoryFormPanel;
@@ -29,7 +30,9 @@ public class SaveUserStoryAction extends AbstractAction {
         int priority = form.getPriority();
         int complexity = form.getComplexity();
         
-        //make query to save story
+        QueryBuilded.getInstance().insertUserStory(title, description, acceptanceCriteria,
+                                                    priority, complexity);
+        form.removeAll();
     }
     
     

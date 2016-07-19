@@ -20,9 +20,9 @@ public class ConnectionDB {
 
     private static final ConnectionDB INSTANCE = new ConnectionDB();
     private static final String DRIVER = "org.postgresql.Driver";
-    private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/extremeprogramming";
-    private static final String USER = "rocio";
-    private static final String PASSWORD = "admin";
+    private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/ExtremeProgramming";
+    private static final String USER = "postgres";
+    private static final String PASSWORD = "floricienta";
     private Connection connection;
 
     private ConnectionDB() {

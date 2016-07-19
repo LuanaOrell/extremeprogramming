@@ -32,6 +32,22 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JButton" name="createStoryButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Create User Story"/>
+            <Property name="enabled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Funcion(&quot;Create User Story&quot;).getEnabled()" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createStoryButtonActionPerformed"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="50" y="180" width="140" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
         <Component class="javax.swing.JLabel" name="createStoryLabel">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -41,19 +57,6 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="50" y="30" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JButton" name="createStoryButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Create User Story"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createStoryButtonActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="180" width="140" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -85,6 +88,9 @@
         <Component class="javax.swing.JButton" name="taskButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Create Task"/>
+            <Property name="enabled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Funcion(&quot;Create Task&quot;).getEnabled()" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="taskButtonActionPerformed"/>
@@ -123,6 +129,9 @@
         <Component class="javax.swing.JButton" name="viewLogButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="User Stories Log"/>
+            <Property name="enabled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Funcion(&quot;User Stories Log&quot;).getEnabled()" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewLogButtonActionPerformed"/>
@@ -161,6 +170,9 @@
         <Component class="javax.swing.JButton" name="backlogButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Backlog"/>
+            <Property name="enabled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Funcion(&quot;Backlog&quot;).getEnabled()" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backlogButtonActionPerformed"/>
@@ -199,6 +211,9 @@
         <Component class="javax.swing.JButton" name="viewTaskBoardButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Task Board"/>
+            <Property name="enabled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Funcion(&quot;Task Board&quot;).getEnabled()" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewTaskBoardButtonActionPerformed"/>
@@ -237,6 +252,9 @@
         <Component class="javax.swing.JButton" name="viewCalendarButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Calendar"/>
+            <Property name="enabled" type="boolean" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new Funcion(&quot;Calendar&quot;).getEnabled()" type="code"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewCalendarButtonActionPerformed"/>

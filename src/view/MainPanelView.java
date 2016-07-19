@@ -9,6 +9,7 @@ import actions.FillBacklogTableAction;
 import javax.swing.BorderFactory;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import model.Funcion;
 
 /**
  *
@@ -34,8 +35,8 @@ public class MainPanelView extends javax.swing.JPanel {
     private void initComponents() {
 
         createStoriesPanel = new javax.swing.JPanel();
-        createStoryLabel = new javax.swing.JLabel();
         createStoryButton = new javax.swing.JButton();
+        createStoryLabel = new javax.swing.JLabel();
         tasksPanel = new javax.swing.JPanel();
         taskLabel = new javax.swing.JLabel();
         taskButton = new javax.swing.JButton();
@@ -57,11 +58,8 @@ public class MainPanelView extends javax.swing.JPanel {
         createStoriesPanel.setBackground(new java.awt.Color(255, 255, 255));
         createStoriesPanel.setLayout(null);
 
-        createStoryLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/files.png"))); // NOI18N
-        createStoriesPanel.add(createStoryLabel);
-        createStoryLabel.setBounds(50, 30, 130, 130);
-
         createStoryButton.setText("Create User Story");
+        createStoryButton.setEnabled(new Funcion("Create User Story").getEnabled());
         createStoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createStoryButtonActionPerformed(evt);
@@ -69,6 +67,10 @@ public class MainPanelView extends javax.swing.JPanel {
         });
         createStoriesPanel.add(createStoryButton);
         createStoryButton.setBounds(50, 180, 140, 23);
+
+        createStoryLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/files.png"))); // NOI18N
+        createStoriesPanel.add(createStoryLabel);
+        createStoryLabel.setBounds(50, 30, 130, 130);
 
         add(createStoriesPanel);
 
@@ -80,6 +82,7 @@ public class MainPanelView extends javax.swing.JPanel {
         taskLabel.setBounds(50, 27, 130, 130);
 
         taskButton.setText("Create Task");
+        taskButton.setEnabled(new Funcion("Create Task").getEnabled());
         taskButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 taskButtonActionPerformed(evt);
@@ -98,6 +101,7 @@ public class MainPanelView extends javax.swing.JPanel {
         logLabel.setBounds(54, 31, 130, 130);
 
         viewLogButton.setText("User Stories Log");
+        viewLogButton.setEnabled(new Funcion("User Stories Log").getEnabled());
         viewLogButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewLogButtonActionPerformed(evt);
@@ -116,6 +120,7 @@ public class MainPanelView extends javax.swing.JPanel {
         backlogLabel.setBounds(50, 25, 130, 130);
 
         backlogButton.setText("Backlog");
+        backlogButton.setEnabled(new Funcion("Backlog").getEnabled());
         backlogButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backlogButtonActionPerformed(evt);
@@ -134,6 +139,7 @@ public class MainPanelView extends javax.swing.JPanel {
         taskBoardLabel.setBounds(49, 20, 130, 130);
 
         viewTaskBoardButton.setText("Task Board");
+        viewTaskBoardButton.setEnabled(new Funcion("Task Board").getEnabled());
         viewTaskBoardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewTaskBoardButtonActionPerformed(evt);
@@ -152,6 +158,7 @@ public class MainPanelView extends javax.swing.JPanel {
         calendarLabel.setBounds(54, 23, 130, 130);
 
         viewCalendarButton.setText("Calendar");
+        viewCalendarButton.setEnabled(new Funcion("Calendar").getEnabled());
         viewCalendarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewCalendarButtonActionPerformed(evt);

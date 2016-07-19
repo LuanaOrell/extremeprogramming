@@ -6,6 +6,7 @@
 package view;
 
 import actions.SaveUserStoryAction;
+import databasemanager.QueryBuilded;
 
 /**
  *
@@ -74,9 +75,9 @@ public class UserStoryFormPanel extends javax.swing.JPanel {
         acceptanceScrollPane.setBounds(31, 242, 335, 104);
 
         saveButton.setText("Save");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveButtonMouseClicked(evt);
             }
         });
         add(saveButton);
@@ -117,9 +118,16 @@ public class UserStoryFormPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        SaveUserStoryAction saveStory = new SaveUserStoryAction(this);
-    }//GEN-LAST:event_saveButtonActionPerformed
+    private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
+        String title = getStoryTitle();
+        String description = getStoryDescription();
+        String acceptanceCriteria = getCriteria();
+        int priority = getPriority();
+        int complexity = getComplexity();
+        
+        QueryBuilded.getInstance().insertUserStory(title, description, acceptanceCriteria,
+                                                    priority, complexity);
+    }//GEN-LAST:event_saveButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
