@@ -189,7 +189,11 @@ public class MainPanelView extends javax.swing.JPanel {
     }//GEN-LAST:event_viewTaskBoardButtonActionPerformed
 
     private void taskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taskButtonActionPerformed
-        // TODO add your handling code here:
+        JDialog dialog = new JDialog();
+        dialog.getContentPane().add(new TaskPanel());
+        dialog.setSize(400, 440);
+        dialog.setLocationRelativeTo(null);
+        dialog.setVisible(true);
     }//GEN-LAST:event_taskButtonActionPerformed
 
     private void viewLogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLogButtonActionPerformed
@@ -198,7 +202,6 @@ public class MainPanelView extends javax.swing.JPanel {
 
     private void backlogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backlogButtonActionPerformed
         JDialog dialog = new JDialog();
-        dialog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BacklogPanelView backlog = new BacklogPanelView();
         FillBacklogTableAction fillTable = new FillBacklogTableAction(backlog);// this will fill the table
         dialog.getContentPane().add(backlog);

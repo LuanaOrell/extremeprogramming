@@ -188,5 +188,17 @@ public class QueryBuilded {
                 title, description, acceptanceCriteria, priority, complexity);
         ResultSet resultSet = QueryManager.getInstance().executeQuery(query);
     }
+    
+    public ResultSet getUserStories(){
+        return QueryManager.getInstance().executeQuery("select * from user_story");
+    }
+    
+    public void saveTask(int status, String title, String description) {
+        QueryManager.getInstance().executeQuery(String.format("select save_task(%d, '%s', '%s')", status, title, description));
+    }
+
+    public void saveTaskIntoStory(int storyId, int taskId) {
+        QueryManager.getInstance().executeQuery(String.format("insert into userstory_task values(%d, %d)", storyId, taskId));
+    }
 
 }

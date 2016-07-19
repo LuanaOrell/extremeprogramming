@@ -4,18 +4,6 @@
 /*==============================================================*/
 
 
-drop table if exists STATUS;
-
-drop table if exists TASK;
-
-drop table if exists TASK_STATUS;
-
-drop table if exists USERSTORY;
-
-drop table if exists USERSTORY_STATUS;
-
-drop table if exists USERSTORY_TASK;
-
 /*==============================================================*/
 /* Table: STATUS                                                */
 /*==============================================================*/
